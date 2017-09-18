@@ -1,0 +1,252 @@
+﻿@model TestAzure.Models.ReportViewModels.MOriginatorReport
+
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Originator</h2>
+<div class="row">
+    <h1 class="text-center text-success">@ViewBag.Message</h1>
+</div>
+<br />
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>Pasul 1: </h4>
+        </div>
+        <div class="panel-body">
+            <form asp-action="Originator" enctype="multipart/form-data">
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ImagePath" class="col-md-2 col-sm-2 control-label"></label>
+                        <div class="col-md-10 col-sm-10">
+                            <input type="file" accept="image/*;capture=camera" asp-for="ImagePath" class="form-control" />
+                            <span asp-validation-for="ImagePath" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImagePath1" class="col-md-2 col-sm-2 control-label"></label>
+                        <div class="col-md-10 col-sm-10">
+                            <input type="file" accept="image/*;capture=camera" asp-for="ImagePath1" class="form-control" />
+                            <span asp-validation-for="ImagePath1" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImagePath2" class="col-md-2 col-sm-2 control-label"></label>
+                        <div class="col-md-10 col-sm-10">
+                            <input type="file" accept="image/*;capture=camera" asp-for="ImagePath2" class="form-control" />
+                            <span asp-validation-for="ImagePath2" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EtiqueteImagePath" class="col-md-2 col-sm-2 control-label"></label>
+                        <div class="col-md-10 col-sm-10">
+                            <input type="file" accept="image/*;capture=camera" asp-for="EtiqueteImagePath" class="form-control" />
+                            <span asp-validation-for="EtiqueteImagePath" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <label>Echipament</label>
+                            </div>
+                            <div class="panel-body">
+                                @* Departament, Zona *@
+                                <div class="form-group">
+                                    <label asp-for="Area" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <select asp-for="Area" class="form-control" asp-items="@ViewBag.AreaList"></select>
+                                        <span asp-validation-for="Area" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Equipment" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <select asp-for="Equipment" class="form-control"></select>
+                                        <span asp-validation-for="Equipment" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <label>Problema</label>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label asp-for="PhenomenaCategory" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <select type="number" asp-for="PhenomenaCategory" class="form-control" asp-items="@ViewBag.CategoryList"></select>
+                                        <span asp-validation-for="PhenomenaCategory" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="QuestionName" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <select type="number" asp-for="QuestionName" class="form-control"></select>
+                                        <span asp-validation-for="QuestionName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel panel-heading">
+                                <label>Informatii material</label>
+                            </div>
+                            <div class="panel panel-body">
+                                <div class="form-group">
+                                    <label asp-for="GCAS" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="GCAS" class="form-control" />
+                                        <span asp-validation-for="GCAS" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="BatchSAP" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="BatchSAP" class="form-control" />
+                                        <span asp-validation-for="BatchSAP" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="VendorBatch" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="VendorBatch" class="form-control" />
+                                        <span asp-validation-for="VendorBatch" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="PO" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="PO" class="form-control" />
+                                        <span asp-validation-for="PO" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <label asp-for="Downtime" class="control-label border-0"></label>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label asp-for="NumberOfStops" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input type="number" min="0" asp-for="NumberOfStops" class="form-control" />
+                                        <span asp-validation-for="NumberOfStops" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Ore:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" min="0" asp-for="Hours" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Minute:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" min="0" max="60" asp-for="Minutes" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Secunde:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" min="0" max="60" asp-for="Seconds" class="form-control" />
+                                    </div>
+                                </div>
+                                <label class="btn btn-primary active col-md-offset-2">
+                                    <input asp-for="HasSample" />
+                                    <label asp-for="HasSample"></label>
+                                </label>
+                                <span asp-validation-for="Downtime" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <label>Detalii BATCH</label>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label asp-for="BatchNo" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input asp-for="BatchNo" class="form-control" />
+                                        <span asp-validation-for="BatchNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Quantity" class="col-md-2 control-label"></label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="Quantity" class="form-control" />
+                                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <label class="btn btn-primary active col-md-offset-2">
+                                    <input asp-for="BlockedBatch" />
+                                    <label asp-for="BlockedBatch"></label>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-lg btn-success btn-block">Creeaza plangere!</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $.get("/Home/RetrieveEquipment", { areaId: 1 }, function (data) {
+            $("#Equipment").empty();
+            $.each(data, function (index, row) {
+                $("#Equipment").append("<option value ='" + row.id + "'>" + row.equipmentName + "</option>")
+            })
+        })
+
+        $("#Area").change(function () {
+            $.get("/Home/RetrieveEquipment", { areaId: $("#Area").val() }, function (data) {
+                $("#Equipment").empty();
+                $.each(data, function (index, row) {
+                    $("#Equipment").append("<option value ='" + row.id + "'>" + row.equipmentName + "</option>")
+                })
+            })
+        })
+
+        $.get("/Home/RetrieveQuestions", { categoryId: 1 }, function (data) {
+            $("#QuestionName").empty();
+            $.each(data, function (index, row) {
+                $("#QuestionName").append("<option value ='" + row.id + "'>" + row.questionName + "</option>")
+            })
+        })
+
+        $("#PhenomenaCategory").change(function () {
+            $.get("/Home/RetrieveQuestions", { categoryId: $("#PhenomenaCategory").val() }, function (data) {
+                $("#QuestionName").empty();
+                $.each(data, function (index, row) {
+                    $("#QuestionName").append("<option value ='" + row.id + "'>" + row.questionName + "</option>")
+                })
+            })
+        })
+
+    });
+</script>
