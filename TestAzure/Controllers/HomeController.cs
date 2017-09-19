@@ -9,20 +9,27 @@ using TestAzure.DBModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using eComplaints.Models.ReportViewModels;
 using TestAzure.Models.ReportViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace TestAzure.Controllers
 {
     public class HomeController : Controller
     {
         eComplaintsCTX ctx;
+        private readonly IHttpContextAccessor _accesor;
 
-        public HomeController()
+        public HomeController(IHttpContextAccessor accesor)
         {
             ctx = new eComplaintsCTX();
+            _accesor = accesor;
         }
 
         public IActionResult Index()
         {
+            var context = _accesor.HttpContext;
+            var host = context.Request.Host.Value;
+            ViewBag.host = host;
+
             return View();
         }
 
