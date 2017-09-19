@@ -30,7 +30,7 @@ namespace TestAzure.Controllers
             var host = context.Request.Host.Value;
             ViewBag.host = host;
 
-            return View();
+            return RedirectToAction("About","Home");
         }
 
         public IActionResult About()
